@@ -1,0 +1,44 @@
+ 
+<!DOCTYPE HTML> 
+<html>  
+<head>  
+<meta charset="UTF-8" />  
+<title>MODEL PAGE</title>   
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>  
+<script type="text/javascript">  
+  /*   var Ajax = function ()  
+    {  
+        $.getJSON ("aa.json", "",function (data)  
+        {  
+            $.each (data, function (i, item)  
+            {  
+                
+                console.log(data);
+               
+            });  
+        });  
+    } ;  */
+    $(function(){
+    	$.getJSON ("aa.json", "",function (data)  
+        {  
+         console.log(data);
+           document.getElementById("disp").innerHTML=data.id;
+        });  
+       
+     /*    $.ajax({
+        url:"aa.json",
+        
+        success:function(result){
+        console.log(result);
+    } 
+    
+    }); */
+         
+    });
+</script>  
+</head>  
+<body>  
+    
+    <div id="disp"></div>  
+</body>  
+</html>  

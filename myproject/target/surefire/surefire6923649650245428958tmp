@@ -1,0 +1,5 @@
+#surefire
+#Thu Feb 21 01:36:50 CST 2019
+user.dir=I\:\\Myworkspace\\myproject
+localRepository=I\:\\maven\\repository
+basedir=I\:\\Myworkspace\\myproject
