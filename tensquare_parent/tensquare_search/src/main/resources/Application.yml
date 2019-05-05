@@ -1,6 +1,6 @@
 server:
-port: 9007
-spring:
+  port: 9007
+    spring:
 application:
 name: tensquare‐search #指定服务名
 data:
