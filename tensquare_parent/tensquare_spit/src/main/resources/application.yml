@@ -11,4 +11,4 @@ spring:
   jpa:
     database: MySQL
     show-sql: true
-    generate-ddl: true
+
