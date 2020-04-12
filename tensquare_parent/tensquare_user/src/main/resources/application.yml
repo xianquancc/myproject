@@ -1,0 +1,27 @@
+server:
+  port: 9008
+spring:
+  application:
+    name: tensquare_user
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/tensquare_user?characterEncoding=UTF8
+    username: root
+    password: root
+  jpa:
+    database: MySQL
+    show-sql: true
+    generate-ddl: true
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    cache: false
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 500MB
+      max-file-size: 100MB
+  redis:
+    host: 192.168.184.134
+
