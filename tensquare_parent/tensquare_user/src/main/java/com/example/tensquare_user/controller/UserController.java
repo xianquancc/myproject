@@ -43,6 +43,7 @@ public class UserController {
 	 */
 	@RequestMapping(value="/{id}",method= RequestMethod.GET)
 	public Result findById(@PathVariable String id){
+		System.out.println("nice");
 		User user=userService.findById(id);
 		System.out.println(user);
 
