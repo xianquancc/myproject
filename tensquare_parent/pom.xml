@@ -7,6 +7,14 @@
     <groupId>com.tensquare</groupId>
     <artifactId>tensquare_parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.2.RELEASE</version>
+        <relativePath/>
+    </parent>
+
     <modules>
         <module>tensquare_common</module>
         <module>tensquare_base</module>
@@ -15,18 +23,15 @@
         <module>tensquare_article</module>
         <module>tensquare_spit</module>
         <module>tensquare_search</module>
+        <module>tensquare_user</module>
     </modules>
     <packaging>pom</packaging>
     <name>tensquare_parent</name>
     <description>十次方项目‐线圈</description>
-    <parent><groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>
-        <relativePath/>
-    </parent>
+
     <properties>
-        <project.build.sourceEncoding>UTF‐8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF‐8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
@@ -34,11 +39,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 
 </project>

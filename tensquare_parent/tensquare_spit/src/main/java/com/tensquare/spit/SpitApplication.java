@@ -7,12 +7,13 @@ import util.IdWorker;
 
 @SpringBootApplication
 public class SpitApplication {
-public static void main(String[] args) {
-SpringApplication.run(SpitApplication.class, args);
-}
-@Bean
-public IdWorker idWorkker(){
+    public static void main(String[] args) {
+        SpringApplication.run(SpitApplication.class, args);
+    }
 
-    return new IdWorker(1, 1);
-}
+    @Bean
+    public IdWorker idWorkker() {
+
+        return new IdWorker(1, 1);
+    }
 }

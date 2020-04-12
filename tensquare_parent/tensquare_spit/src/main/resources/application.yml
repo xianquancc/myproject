@@ -2,13 +2,18 @@ server:
   port: 9006
 spring:
   application:
-    name: tensquare_qa #指定服务名
+    name: tensquare_spil #指定服务名
+#  data:
+#    mongodb:192.168.164.129
+#      host:
+#      database: mongodb
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/tensquare_spit?characterEncoding=UTF8
     username: root
-    password: 123
+    password: root
   jpa:
     database: MySQL
     show-sql: true
     generate-ddl: true
+

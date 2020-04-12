@@ -1,0 +1,16 @@
+package com.example.test.Controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@Controller
+@RequestMapping("/test")
+public class TestController {
+
+    @RequestMapping("/getdata")
+    public  String GetData(){
+
+        return "helloword";
+    }
+}

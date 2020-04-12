@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="tensquare_spit:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/tensquare_spit_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="tensquare_spit/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="tensquare_spit" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -16,7 +16,7 @@ public class Article implements Serializable {
     @Field(index = true
             , analyzer = "ik_max_word", searchAnalyzer = "ik_max_word")
     private String content;//文章正文
-    private String state;//审核状态
+    private String state;//审核状态h
 
     public String getId() {
         return id;

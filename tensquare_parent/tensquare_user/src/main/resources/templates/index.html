@@ -1,0 +1,46 @@
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="/jquery.js"></script>
+    <title></title>
+</head>
+<body>
+<form id="uploadForm"  method="post" enctype="multipart/form-data">
+    <input type="text" value="is very nice" name="content"/>
+    文件:<input id="file"  type="file" multiple="multiple" name="file"/>
+</form>
+<button id="upload">上传文件</button>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("#upload").click(function () {
+            var formData = new FormData($("#uploadForm")[0]);
+
+            if(formData.get("file")==''){
+                alert("请选择文件");
+                return false;
+            }
+            if (formData.get("file").name.indexOf(".")==-1 ){
+                alert("请选择正确的文件格式");
+                return false;
+            }
+            console.log(formData.get("file"));
+            console.log(formData.get("content"));
+            $.ajax({
+                type: 'post',
+                url: "/file/uploadfile",
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    alert(data.message);
+                },
+                error: function () {
+                    alert("上传失败");
+                }
+            });
+        });
+    });
+</script>
+</html>
