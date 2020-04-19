@@ -1,19 +1,21 @@
 package com.tenquare.qa.dao;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import com.tenquare.qa.pojo.Problem;
+import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
+
+
+import java.awt.print.Pageable;
 
 /**
  * problem数据访问接口
  * @author Administrator
  *
  */
-public interface ProblemDao extends JpaRepository<Problem,String>,JpaSpecificationExecutor<Problem>{
+public interface ProblemDao extends JpaRepository<Problem,String>, JpaSpecificationExecutor<Problem> {
 
     /**
      * 根据标签ID查询最新问题列表

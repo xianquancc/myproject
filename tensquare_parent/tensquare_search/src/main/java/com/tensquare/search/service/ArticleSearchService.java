@@ -15,10 +15,9 @@ private ArticleSearchDao articleSearchDao;
 * 增加文章
 * @param article
 */
-public void save(Article article){
-
-    articleSearchDao.save(article);
-}
+    public void save(Article article){
+        articleSearchDao.save(article);
+    }
 
     public Page<Article> findByTitleLike(String keywords, int page, int size)
     {

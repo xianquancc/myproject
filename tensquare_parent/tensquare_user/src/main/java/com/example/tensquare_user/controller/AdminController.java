@@ -32,6 +32,21 @@ public class AdminController {
 	@Autowired
 	private RedisTemplate redisTemplate;
 
+
+	/**
+	 * 用户登陆
+	 * @return
+	 */
+	@RequestMapping(value="/login",method=RequestMethod.POST)
+	public Result login(@RequestBody Map<String,String> loginMap){
+		Admin admin = adminService.findByLoginnameAndPassword(loginMap.get("loginname"),
+						loginMap.get("password"));
+		if(admin!=null){
+			return new Result(true,StatusCode.OK,"登陆成功");
+		}else{
+			return new Result(false,StatusCode.LOGINERROR,"用户名或密码错误");
+		}
+	}
 	/**
 	 * 查询全部数据
 	 * @return
@@ -99,6 +114,7 @@ public class AdminController {
 	 */
 	@RequestMapping(method=RequestMethod.POST)
 	public Result add(@RequestBody Admin admin  ){
+
 		adminService.add(admin);
 		return new Result(true,StatusCode.OK,"增加成功");
 	}
@@ -109,8 +125,7 @@ public class AdminController {
 	 */
 	@RequestMapping(value="/{id}",method= RequestMethod.PUT)
 	public synchronized Result update(@RequestBody Admin admin, @PathVariable String id ){
-		Lock lock=new ReentrantLock();
-		lock.lock();
+
 		admin.setId(id);
 		adminService.update(admin);
 		return new Result(true,StatusCode.OK,"修改成功");
