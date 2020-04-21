@@ -1,11 +1,11 @@
 package com.example.tensquare_user.controller;
-import java.util.List;
 import java.util.Map;
 
-import com.example.tensquare_user.dao.UserDao;
 import com.example.tensquare_user.pojo.User;
 import com.example.tensquare_user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
-import util.IdWorker;
+import util.JwtUtil;
 
 /**
  * user控制器层
@@ -23,10 +23,15 @@ import util.IdWorker;
 @RestController
 @CrossOrigin
 @RequestMapping("/user")
+@Configuration
+@EnableConfigurationProperties(JwtUtil.class)
 public class UserController {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private JwtUtil jwtUtil;
 	/**
 	 * 查询全部数据
 	 * @return
@@ -43,6 +48,7 @@ public class UserController {
 	 */
 	@RequestMapping(value="/{id}",method= RequestMethod.GET)
 	public Result findById(@PathVariable String id){
+
 		System.out.println("nice");
 		User user=userService.findById(id);
 		System.out.println(user);
