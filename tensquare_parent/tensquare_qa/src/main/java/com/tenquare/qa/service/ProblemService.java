@@ -7,15 +7,13 @@ import java.util.Map;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
+
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Selection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +24,7 @@ import com.tenquare.qa.pojo.Problem;
 
 /**
  * problem服务层
- * 
+ *
  * @author Administrator
  *
  */
@@ -35,7 +33,7 @@ public class ProblemService {
 
 	@Autowired
 	private ProblemDao problemDao;
-	
+
 	@Autowired
 	private IdWorker idWorker;
 
@@ -99,7 +97,7 @@ public class ProblemService {
 		return problemDao.findAll(specification, pageRequest);
 	}
 
-	
+
 	/**
 	 * 条件查询
 	 * @param whereMap
@@ -184,7 +182,7 @@ public class ProblemService {
                 if (searchMap.get("replyname")!=null && !"".equals(searchMap.get("replyname"))) {
                 	predicateList.add(cb.like(root.get("replyname").as(String.class), "%"+(String)searchMap.get("replyname")+"%"));
                 }
-				
+
 				return cb.and( predicateList.toArray(new Predicate[predicateList.size()]));
 
 			}

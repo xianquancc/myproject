@@ -3,6 +3,7 @@ package com.tenquare.qa.dao;
 
 import com.tenquare.qa.pojo.Problem;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -24,7 +25,7 @@ public interface ProblemDao extends JpaRepository<Problem,String>, JpaSpecificat
      * @return
      */
     @Query("select p from Problem p where id in( select problemid from Pl where labelid=?1 ) order by replytime desc")
-    public Page<Problem> findNewListByLabelId(String labelId, Pageable pageable);
+    public Page<Problem> findNewListByLabelId(String labelId, PageRequest pageable);
 
 
     /**
@@ -34,7 +35,7 @@ public interface ProblemDao extends JpaRepository<Problem,String>, JpaSpecificat
      * @return
      */
     @Query("select p from Problem p where id in( select problemid from Pl where labelid=?1 ) order by reply desc")
-    public Page<Problem> findHotListByLabelId(String labelId, Pageable
+    public Page<Problem> findHotListByLabelId(String labelId, PageRequest
             pageable);
 
     /**
@@ -44,6 +45,6 @@ public interface ProblemDao extends JpaRepository<Problem,String>, JpaSpecificat
      * @return
      */
     @Query("select p from Problem p where id in( select problemid from Pl where labelid=?1 ) and reply=0 order by createtime desc")
-    public Page<Problem> findWaitListByLabelId(String labelId, Pageable
+    public Page<Problem> findWaitListByLabelId(String labelId, PageRequest
             pageable);
 }
